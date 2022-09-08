@@ -1,0 +1,25 @@
+version: 3
+
+#docker volume(永続化)
+#volumes:
+#  postges-store:
+
+services:
+  db:
+    #Dockerhubからイメージを指定
+    image: postgres:11-alpine
+    #--name
+    container_name: postgres
+    #-p
+    ports:
+      - 5432:5432
+    #-v
+    #volumes:
+      #- postgres-store:/var/lib/postgresql/data
+    #ENV
+    environment:
+      #スーパユーザの設定
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      #デフォルトDB
+      POSTGRES_DB: test_db
